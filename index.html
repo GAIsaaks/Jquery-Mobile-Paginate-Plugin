@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>JQuery Mobile Pagination plugin</title>
+<link type="text/css" rel="stylesheet" href="JQM_pagination.css" />
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/javascript" src="JQM_pagination.0.5.js"></script>
+<body>
+<div data-role="page" id="page">
+  <div data-role="header">
+    <h1>Header</h1>
+  </div>
+  <div data-role="content">
+    <div class="paginator"></div>
+    
+    <div id="loadImages"></div>
+    
+    <div class="paginator" ></div>
+  </div>
+  <div data-role="footer">
+    <h4>Footer</h4>
+  </div>
+</div>
+
+<script type="text/javascript">
+$( document ).bind( "pagecreate create", function( e ){
+	$.mobile.grPaginate();
+	
+	var obj = $.mobile.grPaginate();
+	var prev = obj.options.prev;
+	
+		$('.prev').on('click', function(prev) {
+			obj.getPrevious(event, prev);
+		});
+		
+		var next = obj.options.next;
+		
+		$('.next').on("click", function(next) {
+			obj.getNext(event, next);
+		});
+});
+</script>
+</body>
+</html>
